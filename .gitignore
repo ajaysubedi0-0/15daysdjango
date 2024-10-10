@@ -1,0 +1,41 @@
+# Ignore the .env file
+.env
+
+# Ignore Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Ignore SQLite database file
+*.sqlite3
+
+# Ignore Django migrations
+db.sqlite3
+*.log
+*.pot
+*.pyc
+*.pyo
+*.db
+*.sqlite3
+*.log
+
+# Ignore virtual environment folders
+venv/
+env/
+.venv/
+
+# Ignore static files collected
+staticfiles/
+
+# Ignore media files
+media/
+
+# Ignore IDE specific files
+.vscode/
+.idea/
+
+# Ignore other unnecessary system files
+*.DS_Store
+.pytest_cache/
+coverage/
+.coverage
