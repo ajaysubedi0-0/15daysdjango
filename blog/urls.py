@@ -7,7 +7,6 @@ urlpatterns =[
     path("register/",register, name="register"),
     path("login/",login, name="login"),
     path("create/",create_blog, name="create"),
-    path("edit/",edit_blog,  name="edit"),
     path("<int:blog_id>",single_blog, name="blog_detail"),
     path("<int:blog_id>/delete",delete_blog,name="delete_blog")
 ]
