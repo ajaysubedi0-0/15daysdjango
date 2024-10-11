@@ -39,7 +39,7 @@ def edit_blog(request):
             blog.image=image
             blog.save()
             return redirect("home")
-    return render(request, 'main/edit.html',{"blog":blog})
+    return render(request, 'main/edit_blog.html',{"blog":blog})
 
 def single_blog(request,blog_id):             #single blog
     blog = get_object_or_404(Blogs,pk=blog_id);
