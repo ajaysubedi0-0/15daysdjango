@@ -22,7 +22,7 @@
 
             <p class="text-2xl font-bold my-5">{{blog.description}}</p>
 
-            <form action="{% url 'edit_blog' blog_id=blog,id %}">
+            <form action="{% url 'edit_blog' blog_id=blog.id %}">
               <button class="bg-blue-700 p-2 mt-3">Edit Me</button>
             </form>
             <form action="{% url 'delete_blog' blog.id %}">
