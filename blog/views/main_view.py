@@ -23,9 +23,23 @@ def create_blog(request): #create blog
 
 
 
-
-def edit_blog(request):              #edit blog
-    return render(request, 'main/edit.html')
+@login_required
+def edit_blog(request): 
+    blog= get_object_or_404(Blogs,pk=blog_id)    
+    if blog.author == request.user:
+        if request.method == 'POST':
+            title = request.POST.get("title")  
+            subtitle = request.POST.get("subtitle")
+            description = request.POST.get("description")
+            image = request.FILES.get("image")
+            # update it with the new data
+            blog.title=title
+            blog.subtitle=subtitle
+            blog.description=description
+            blog.image=image
+            blog.save()
+            return redirect("home")
+    return render(request, 'main/edit.html',{"blog":blog})
 
 def single_blog(request,blog_id):             #single blog
     blog = get_object_or_404(Blogs,pk=blog_id);
