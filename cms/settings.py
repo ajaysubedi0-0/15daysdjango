@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
-
+import cloudinary_storage
 
 import os
 from dotenv import load_dotenv
@@ -51,7 +51,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog'
+    'blog',
+    # other apps...
+    'cloudinary',
+    'cloudinary_storage'
+
 ]
   # Replace with your app name if different
 TAILWIND_APP_NAME = 'theme'
@@ -164,3 +168,17 @@ MEDIA_ROOT = os.path.join(BASE_DIR,"media")
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': os.getenv('CLOUDINARY_NAME'),
+    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET'),
+    'UPLOAD_PRESET': os.getenv('CLOUDINARY_UPLOAD_PRESET'),
+}
+
+DEFAULT_FILE_STORAGE= 'cloudinary_storage.storage.MediaCloudinaryStorage'
